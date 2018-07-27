@@ -1,0 +1,34 @@
+Vue.component('show-[% model_name_slug %]', {
+  components: {},
+  props: {
+    [% model_name_slug %]:{
+        type: Object,
+        required: true
+    }
+  },
+  data() {
+    return {
+      form: new SparkForm({
+[% vue_fields %]
+      })
+    };
+  },
+  beforeCreate(){},
+  created(){},
+  beforeMount(){},
+  mounted(){},
+  beforeUpdate(){},
+  updated(){},
+  beforeDestroy(){},
+  destroyed(){},
+  methods: {
+    submit(){
+      Spark.post(route('[% show_route_name %]').url(), this.form).then((response) => {
+        console.log(response);
+      }).catch((err) => {
+        console.log(err);
+      });
+    }
+  },
+  computed: {}
+});

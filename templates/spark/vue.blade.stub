@@ -1,0 +1,32 @@
+Vue.component('NAME', {
+    components: {},
+    props: [],
+    template: ``,
+    data() {
+        return {
+            form: new SparkForm({
+                question: null
+            })
+        };
+    },
+    beforeCreate(){},
+    created(){},
+    beforeMount(){},
+    mounted(){},
+    beforeUpdate(){},
+    updated(){},
+    beforeDestroy(){},
+    destroyed(){},
+    methods: {
+        myMethod() {
+            Spark.post('/comments', this.form).then(response => {
+                Bus.$emit('submitComment');
+            });
+        }
+    },
+    computed: {
+        myComputed(){
+            return 1;
+        }
+    }
+});
